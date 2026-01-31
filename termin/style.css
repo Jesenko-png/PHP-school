@@ -1,0 +1,205 @@
+/* ========== Global ========== */
+* {
+	box-sizing: border-box;
+	font-family: "Segoe UI", sans-serif;
+}
+
+body {
+	background: linear-gradient(135deg, #667eea, #764ba2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0;
+}
+
+/* ========== Container (korisnička stranica) ========== */
+.container {
+	background: #fff;
+	padding: 35px;
+	width: 360px;
+	border-radius: 14px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+	animation: fadeIn 0.8s ease;
+}
+
+h2,
+h3 {
+	text-align: center;
+	margin-bottom: 20px;
+	color: #333;
+}
+
+/* ========== Input ========== */
+input {
+	width: 100%;
+	padding: 12px;
+	margin-bottom: 12px;
+	border-radius: 8px;
+	border: 1px solid #ddd;
+	font-size: 14px;
+	transition: all 0.3s ease;
+}
+
+input:hover {
+	border-color: #764ba2;
+}
+
+input:focus {
+	outline: none;
+	border-color: #667eea;
+	box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* ========== Termini buttons ========== */
+#termini button {
+	margin: 5px;
+	padding: 10px 15px;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	transition: 0.3s;
+	font-weight: bold;
+}
+
+#termini button.slobodno {
+	background: #4caf50;
+	color: white;
+}
+
+#termini button.slobodno:hover {
+	background: #45a049;
+	transform: scale(1.05);
+}
+
+#termini button.zauzeto {
+	background: #ccc;
+	color: #666;
+	cursor: not-allowed;
+}
+
+/* ========== Feedback ========== */
+#feedback p.success {
+	color: green;
+	animation: fadeIn 0.5s;
+}
+
+#feedback p.error {
+	color: red;
+	animation: fadeIn 0.5s;
+}
+
+/* ========== Fade animation ========== */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ========== Responsive container ========== */
+@media (max-width: 400px) {
+	.container {
+		width: 90%;
+		padding: 20px;
+	}
+}
+
+/* ========== Admin Panel ========== */
+.admin-container {
+	width: 90%;
+	max-width: 1000px;
+	margin: 30px auto;
+	background: #fff;
+	padding: 20px;
+	border-radius: 12px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	overflow-x: auto; /* horizontal scroll ako je preširoka */
+}
+
+.admin-container h2 {
+	text-align: center;
+	margin-bottom: 20px;
+	color: #333;
+}
+
+.admin-container table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: auto;
+}
+
+.admin-container th,
+.admin-container td {
+	padding: 12px 10px;
+	border: 1px solid #ddd;
+	text-align: left;
+	word-break: break-word;
+}
+
+.admin-container th {
+	background: #667eea;
+	color: white;
+}
+
+.admin-container input {
+	width: 95%;
+	padding: 6px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+}
+
+.admin-container button {
+	padding: 6px 12px;
+	border: none;
+	border-radius: 6px;
+	background: #4caf50;
+	color: white;
+	cursor: pointer;
+}
+
+.admin-container button:hover {
+	background: #45a049;
+}
+
+/* ========== Tooltip za razlog ========== */
+.admin-container td.razlog {
+	position: relative;
+	cursor: pointer;
+	color: #333;
+	font-weight: bold;
+	text-align: center;
+}
+
+.admin-container td.razlog::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	bottom: 120%; /* iznad ćelije */
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 6px 10px;
+	border-radius: 6px;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s;
+	font-size: 13px;
+	z-index: 10;
+}
+
+.admin-container td.razlog:hover::after {
+	opacity: 1;
+}
+
+/* Horizontal scroll za male ekrane */
+@media (max-width: 768px) {
+	.admin-container {
+		overflow-x: auto;
+	}
+}

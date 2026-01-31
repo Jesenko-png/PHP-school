@@ -1,0 +1,45 @@
+<?php
+// Tačni podaci
+$pravoIme = "administrator";
+$pravaLozinka = "mojaSifraJeSigurna";
+
+$poruka = "";
+
+//
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $unosIme = $_POST['ime'] ?? "";
+    $unosLozinka = $_POST['lozinka'] ?? "";
+
+    // Case-insensitive provjera korisničkog imena
+    if (strtolower($unosIme) === $pravoIme && $unosLozinka === $pravaLozinka) {
+        $poruka = "Dobrodošao, administratore!";
+    } else {
+        $poruka = "Pogrešno korisničko ime ili lozinka!";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <!--
+    <meta charset="UTF-8">
+    <title>Login forma</title>
+</head>
+<body>
+    <h2>Prijava</h2>
+    <?php if ($poruka): ?>
+        <p><?php echo $poruka; ?></p>
+    <?php endif; ?>
+    
+    <form method="post" action="">
+        <label for="ime">Korisničko ime:</label><br>
+        <input type="text" id="ime" name="ime" required><br><br>
+
+        <label for="lozinka">Lozinka:</label><br>
+        <input type="password" id="lozinka" name="lozinka" required><br><br>
+
+        <input type="submit" value="Prijavi se">
+    </form>
+</body>
+</html>
