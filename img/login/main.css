@@ -1,0 +1,20 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+.proizvodi-wrapper {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.proizvodi {
+  border: 1px solid black;
+  padding: 20px;
+  background-color: bisque;
+  width: 200px;
+}

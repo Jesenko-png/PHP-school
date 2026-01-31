@@ -1,0 +1,7 @@
+<?php if(isset($_SESSION["ulogovan"])): ?>
+    <a href="logout.php">Logout</a>
+
+<?php else: ?>
+    <a href="model/login.php">Login</a>
+
+<?php endif; ?>
