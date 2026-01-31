@@ -1,0 +1,15 @@
+{
+	"name": "jesen/composer",
+	"autoload": {
+		"psr-4": {
+			"composer\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "Jesenko",
+			"email": "jesenko9@hotmail.com"
+		}
+	],
+	"require": {}
+}
